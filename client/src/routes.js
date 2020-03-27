@@ -50,6 +50,8 @@ import ServiceEdit from "./pages/ServiceEdit";
 import ServiceList from "./pages/ServiceList";
 import UserEdit from "./pages/UserEdit";
 import UserList from "./pages/UserList";
+import VirtualMachineEdit from "./pages/VirtualMachineEdit";
+import VirtualMachineList from "./pages/VirtualMachineList";
 import VolumeEdit from "./pages/VolumeEdit";
 import VolumeList from "./pages/VolumeList";
 
@@ -91,6 +93,8 @@ class Routes extends Component {
               <PrivateRoute exact path="/services" component={ ServiceList }  />
               <PrivateRoute exact path="/users/:id" component={ UserEdit }  />
               <PrivateRoute exact path="/users" component={ UserList }  />
+              <PrivateRoute exact path="/virtualmachines/:id" component={ VirtualMachineEdit }  />
+              <PrivateRoute exact path="/virtualmachines" component={ VirtualMachineList }  />
               <PrivateRoute exact path="/volumes/:id" component={ VolumeEdit }  />
               <PrivateRoute exact path="/volumes" component={ VolumeList }  />
 

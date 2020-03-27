@@ -54,6 +54,8 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 // START IMPORT ACTIONS
 import ServiceActions from "../redux/actions/ServiceActions";
+import VolumeActions from "../redux/actions/VolumeActions";
+import ProjectActions from "../redux/actions/ProjectActions";
 import EnvironmentActions from "../redux/actions/EnvironmentActions";
 
 // END IMPORT ACTIONS
@@ -71,8 +73,16 @@ import EnvironmentActions from "../redux/actions/EnvironmentActions";
 *	@description CRUD ACTION get
 *	@param ObjectId id - Id resource
 *
-* actionsEnvironment.list
+* actionsVolume.list
 *	@description CRUD ACTION list
+*
+* actionsProject.findByservices
+*	@description CRUD ACTION findByservices
+*	@param Objectid key - Id of model to search for
+*
+* actionsEnvironment.findByservices
+*	@description CRUD ACTION findByservices
+*	@param Objectid key - Id of model to search for
 *
 
 **/

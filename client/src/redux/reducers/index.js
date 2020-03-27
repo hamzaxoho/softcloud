@@ -43,6 +43,8 @@ import ServiceEditReducer from "./ServiceEditReducer";
 import ServiceListReducer from "./ServiceListReducer";
 import UserEditReducer from "./UserEditReducer";
 import UserListReducer from "./UserListReducer";
+import VirtualMachineEditReducer from "./VirtualMachineEditReducer";
+import VirtualMachineListReducer from "./VirtualMachineListReducer";
 import VolumeEditReducer from "./VolumeEditReducer";
 import VolumeListReducer from "./VolumeListReducer";
 
@@ -75,6 +77,8 @@ const rootReducer = combineReducers({
 	ServiceListReducer,
 	UserEditReducer,
 	UserListReducer,
+	VirtualMachineEditReducer,
+	VirtualMachineListReducer,
 	VolumeEditReducer,
 	VolumeListReducer,
  // END COMBINE REDUCERS

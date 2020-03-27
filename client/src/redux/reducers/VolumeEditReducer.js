@@ -51,8 +51,14 @@ export default function VolumeEditReducer(state = initialState, action) {
       return { ...state, volume: action.payload };
     case types.GET_VOLUME_SUCCESS:
       return { ...state, volume: action.payload };
-    case types.LIST_ENVIRONMENT_SUCCESS:
+    case types.FINDBYVOLUMES_SERVICE_SUCCESS:
+      return { ...state, listService: action.payload };
+    case types.FINDBYVOLUMES_CONTAINER_SUCCESS:
+      return { ...state, listContainer: action.payload };
+    case types.FINDBYVOLUMES_ENVIRONMENT_SUCCESS:
       return { ...state, listEnvironment: action.payload };
+    case types.FINDBYVOLUMES_VIRTUALMACHINE_SUCCESS:
+      return { ...state, listVirtualMachine: action.payload };
      // END REDUCERS
     
     default:

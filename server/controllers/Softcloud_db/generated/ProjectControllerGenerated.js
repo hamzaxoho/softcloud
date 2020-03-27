@@ -60,6 +60,10 @@ const generatedControllers = {
     const baseUrl = `${Properties.api}/project`;
     router.post(baseUrl + "", authorize([]), ProjectController.create);
     router.delete(baseUrl + "/:id", authorize([]), ProjectController.delete);
+    router.get(baseUrl + "/findBycontainers/:key", authorize([]), ProjectController.findBycontainers);
+    router.get(baseUrl + "/findByenvironments/:key", authorize([]), ProjectController.findByenvironments);
+    router.get(baseUrl + "/findByservices/:key", authorize([]), ProjectController.findByservices);
+    router.get(baseUrl + "/findByvms/:key", authorize([]), ProjectController.findByvms);
     router.get(baseUrl + "/:id", authorize([]), ProjectController.get);
     router.get(baseUrl + "", authorize([]), ProjectController.list);
     router.post(baseUrl + "/:id", authorize([]), ProjectController.update);
@@ -93,6 +97,70 @@ const generatedControllers = {
   delete: async (req, res) => {
     try {
       const result = await ProjectModel.delete(req.params.id);
+      res.json(result);
+    } catch (err) {
+      const safeErr = ErrorManager.getSafeError(err);
+      res.status(safeErr.status).json(safeErr);
+    }
+  },
+  
+  /**
+  * ProjectModel.findBycontainers
+  *   @description CRUD ACTION findBycontainers
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  findBycontainers: async (req, res) => {
+    try {
+      const result = await ProjectModel.findBycontainers(req.params.key);
+      res.json(result);
+    } catch (err) {
+      const safeErr = ErrorManager.getSafeError(err);
+      res.status(safeErr.status).json(safeErr);
+    }
+  },
+  
+  /**
+  * ProjectModel.findByenvironments
+  *   @description CRUD ACTION findByenvironments
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  findByenvironments: async (req, res) => {
+    try {
+      const result = await ProjectModel.findByenvironments(req.params.key);
+      res.json(result);
+    } catch (err) {
+      const safeErr = ErrorManager.getSafeError(err);
+      res.status(safeErr.status).json(safeErr);
+    }
+  },
+  
+  /**
+  * ProjectModel.findByservices
+  *   @description CRUD ACTION findByservices
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  findByservices: async (req, res) => {
+    try {
+      const result = await ProjectModel.findByservices(req.params.key);
+      res.json(result);
+    } catch (err) {
+      const safeErr = ErrorManager.getSafeError(err);
+      res.status(safeErr.status).json(safeErr);
+    }
+  },
+  
+  /**
+  * ProjectModel.findByvms
+  *   @description CRUD ACTION findByvms
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  findByvms: async (req, res) => {
+    try {
+      const result = await ProjectModel.findByvms(req.params.key);
       res.json(result);
     } catch (err) {
       const safeErr = ErrorManager.getSafeError(err);

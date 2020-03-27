@@ -63,6 +63,9 @@ import Delete from "@material-ui/icons/Delete";
 *	@description CRUD ACTION get
 *	@param ObjectId id - Id resource
 *
+* actionsProject.list
+*	@description CRUD ACTION list
+*
 
 **/
 

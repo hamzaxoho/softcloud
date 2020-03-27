@@ -150,11 +150,11 @@ paths:
                   type: string
                 ServiceEndpoints:
                   type: string
+                Storage:
+                  type: string
                 Type:
                   type: string
                 UserData:
-                  type: string
-                Volumes:
                   type: string
     get:
       x-skaffolder-id: 5e7cdf7506e8563f32299fbe
@@ -287,6 +287,39 @@ paths:
       x-skaffolder-url: /findByenvironments/{key}
       x-skaffolder-roles: []
       summary: CRUD ACTION findByenvironments
+      tags:
+        - Container
+      parameters:
+        - name: key
+          x-skaffolder-type: Objectid
+          in: path
+          description: Id of model to search for
+          required: true
+          schema:
+            type: Objectid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Container"
+  "/container/findByvolumes/{key}":
+    get:
+      x-skaffolder-id: 5e7e013306e8563f3229a9af
+      x-skaffolder-name: findByvolumes
+      x-skaffolder-id-resource: 5e7cd78a06e8563f32299f55
+      x-skaffolder-resource: Container
+      x-skaffolder-crudAction: findByvolumes
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION findByvolumes
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /findByvolumes/{key}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION findByvolumes
       tags:
         - Container
       parameters:
@@ -455,6 +488,39 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/Environment"
+  "/environment/findBycontainers/{key}":
+    get:
+      x-skaffolder-id: 5e7e012106e8563f3229a9a7
+      x-skaffolder-name: findBycontainers
+      x-skaffolder-id-resource: 5e7cd51106e8563f32299f3a
+      x-skaffolder-resource: Environment
+      x-skaffolder-crudAction: findBycontainers
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION findBycontainers
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /findBycontainers/{key}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION findBycontainers
+      tags:
+        - Environment
+      parameters:
+        - name: key
+          x-skaffolder-type: Objectid
+          in: path
+          description: Id of model to search for
+          required: true
+          schema:
+            type: Objectid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Environment"
   "/environment/findByprojects/{key}":
     get:
       x-skaffolder-id: 5e7cdf5806e8563f32299fa0
@@ -469,6 +535,105 @@ paths:
       x-skaffolder-url: /findByprojects/{key}
       x-skaffolder-roles: []
       summary: CRUD ACTION findByprojects
+      tags:
+        - Environment
+      parameters:
+        - name: key
+          x-skaffolder-type: Objectid
+          in: path
+          description: Id of model to search for
+          required: true
+          schema:
+            type: Objectid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Environment"
+  "/environment/findByservices/{key}":
+    get:
+      x-skaffolder-id: 5e7e012a06e8563f3229a9ab
+      x-skaffolder-name: findByservices
+      x-skaffolder-id-resource: 5e7cd51106e8563f32299f3a
+      x-skaffolder-resource: Environment
+      x-skaffolder-crudAction: findByservices
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION findByservices
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /findByservices/{key}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION findByservices
+      tags:
+        - Environment
+      parameters:
+        - name: key
+          x-skaffolder-type: Objectid
+          in: path
+          description: Id of model to search for
+          required: true
+          schema:
+            type: Objectid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Environment"
+  "/environment/findByvms/{key}":
+    get:
+      x-skaffolder-id: 5e7e013d06e8563f3229a9bc
+      x-skaffolder-name: findByvms
+      x-skaffolder-id-resource: 5e7cd51106e8563f32299f3a
+      x-skaffolder-resource: Environment
+      x-skaffolder-crudAction: findByvms
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION findByvms
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /findByvms/{key}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION findByvms
+      tags:
+        - Environment
+      parameters:
+        - name: key
+          x-skaffolder-type: Objectid
+          in: path
+          description: Id of model to search for
+          required: true
+          schema:
+            type: Objectid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Environment"
+  "/environment/findByvolumes/{key}":
+    get:
+      x-skaffolder-id: 5e7e013306e8563f3229a9b1
+      x-skaffolder-name: findByvolumes
+      x-skaffolder-id-resource: 5e7cd51106e8563f32299f3a
+      x-skaffolder-resource: Environment
+      x-skaffolder-crudAction: findByvolumes
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION findByvolumes
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /findByvolumes/{key}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION findByvolumes
       tags:
         - Environment
       parameters:
@@ -637,6 +802,138 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/Project"
+  "/project/findBycontainers/{key}":
+    get:
+      x-skaffolder-id: 5e7e012106e8563f3229a9a5
+      x-skaffolder-name: findBycontainers
+      x-skaffolder-id-resource: 5e7cd4fb06e8563f32299f35
+      x-skaffolder-resource: Project
+      x-skaffolder-crudAction: findBycontainers
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION findBycontainers
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /findBycontainers/{key}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION findBycontainers
+      tags:
+        - Project
+      parameters:
+        - name: key
+          x-skaffolder-type: Objectid
+          in: path
+          description: Id of model to search for
+          required: true
+          schema:
+            type: Objectid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Project"
+  "/project/findByenvironments/{key}":
+    get:
+      x-skaffolder-id: 5e7e011706e8563f3229a9a3
+      x-skaffolder-name: findByenvironments
+      x-skaffolder-id-resource: 5e7cd4fb06e8563f32299f35
+      x-skaffolder-resource: Project
+      x-skaffolder-crudAction: findByenvironments
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION findByenvironments
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /findByenvironments/{key}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION findByenvironments
+      tags:
+        - Project
+      parameters:
+        - name: key
+          x-skaffolder-type: Objectid
+          in: path
+          description: Id of model to search for
+          required: true
+          schema:
+            type: Objectid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Project"
+  "/project/findByservices/{key}":
+    get:
+      x-skaffolder-id: 5e7e012a06e8563f3229a9a9
+      x-skaffolder-name: findByservices
+      x-skaffolder-id-resource: 5e7cd4fb06e8563f32299f35
+      x-skaffolder-resource: Project
+      x-skaffolder-crudAction: findByservices
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION findByservices
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /findByservices/{key}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION findByservices
+      tags:
+        - Project
+      parameters:
+        - name: key
+          x-skaffolder-type: Objectid
+          in: path
+          description: Id of model to search for
+          required: true
+          schema:
+            type: Objectid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Project"
+  "/project/findByvms/{key}":
+    get:
+      x-skaffolder-id: 5e7e013d06e8563f3229a9be
+      x-skaffolder-name: findByvms
+      x-skaffolder-id-resource: 5e7cd4fb06e8563f32299f35
+      x-skaffolder-resource: Project
+      x-skaffolder-crudAction: findByvms
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION findByvms
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /findByvms/{key}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION findByvms
+      tags:
+        - Project
+      parameters:
+        - name: key
+          x-skaffolder-type: Objectid
+          in: path
+          description: Id of model to search for
+          required: true
+          schema:
+            type: Objectid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Project"
   /service:
     post:
       x-skaffolder-id: 5e7cdf7f06e8563f32299fc1
@@ -806,6 +1103,39 @@ paths:
       x-skaffolder-url: /findByenvironments/{key}
       x-skaffolder-roles: []
       summary: CRUD ACTION findByenvironments
+      tags:
+        - Service
+      parameters:
+        - name: key
+          x-skaffolder-type: Objectid
+          in: path
+          description: Id of model to search for
+          required: true
+          schema:
+            type: Objectid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Service"
+  "/service/findByvolumes/{key}":
+    get:
+      x-skaffolder-id: 5e7e013306e8563f3229a9ad
+      x-skaffolder-name: findByvolumes
+      x-skaffolder-id-resource: 5e7cda6d06e8563f32299f6d
+      x-skaffolder-resource: Service
+      x-skaffolder-crudAction: findByvolumes
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION findByvolumes
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /findByvolumes/{key}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION findByvolumes
       tags:
         - Service
       parameters:
@@ -1037,6 +1367,194 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/User"
+  /virtualmachine:
+    post:
+      x-skaffolder-id: 5e7e013d06e8563f3229a9b7
+      x-skaffolder-name: create
+      x-skaffolder-id-resource: 5e7dfd5606e8563f3229a988
+      x-skaffolder-resource: VirtualMachine
+      x-skaffolder-crudAction: create
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION create
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /
+      x-skaffolder-roles: []
+      summary: CRUD ACTION create
+      tags:
+        - VirtualMachine
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VirtualMachine"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CPUS:
+                  type: number
+                DiskSize:
+                  type: number
+                Memory:
+                  type: number
+                Name:
+                  type: string
+    get:
+      x-skaffolder-id: 5e7e010c06e8563f3229a9a2
+      x-skaffolder-name: list
+      x-skaffolder-id-resource: 5e7dfd5606e8563f3229a988
+      x-skaffolder-resource: VirtualMachine
+      x-skaffolder-crudAction: list
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION list
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /
+      x-skaffolder-roles: []
+      summary: CRUD ACTION list
+      tags:
+        - VirtualMachine
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/VirtualMachine"
+  "/virtualmachine/{id}":
+    delete:
+      x-skaffolder-id: 5e7e013e06e8563f3229a9c1
+      x-skaffolder-name: delete
+      x-skaffolder-id-resource: 5e7dfd5606e8563f3229a988
+      x-skaffolder-resource: VirtualMachine
+      x-skaffolder-crudAction: delete
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION delete
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION delete
+      tags:
+        - VirtualMachine
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+    get:
+      x-skaffolder-id: 5e7e013d06e8563f3229a9b9
+      x-skaffolder-name: get
+      x-skaffolder-id-resource: 5e7dfd5606e8563f3229a988
+      x-skaffolder-resource: VirtualMachine
+      x-skaffolder-crudAction: get
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION get
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION get
+      tags:
+        - VirtualMachine
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id resource
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VirtualMachine"
+    post:
+      x-skaffolder-id: 5e7e013d06e8563f3229a9b8
+      x-skaffolder-name: update
+      x-skaffolder-id-resource: 5e7dfd5606e8563f3229a988
+      x-skaffolder-resource: VirtualMachine
+      x-skaffolder-crudAction: update
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION update
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION update
+      tags:
+        - VirtualMachine
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VirtualMachine"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VirtualMachine"
+  "/virtualmachine/findByvolumes/{key}":
+    get:
+      x-skaffolder-id: 5e7e013306e8563f3229a9b3
+      x-skaffolder-name: findByvolumes
+      x-skaffolder-id-resource: 5e7dfd5606e8563f3229a988
+      x-skaffolder-resource: VirtualMachine
+      x-skaffolder-crudAction: findByvolumes
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION findByvolumes
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /findByvolumes/{key}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION findByvolumes
+      tags:
+        - VirtualMachine
+      parameters:
+        - name: key
+          x-skaffolder-type: Objectid
+          in: path
+          description: Id of model to search for
+          required: true
+          schema:
+            type: Objectid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/VirtualMachine"
   /volume:
     post:
       x-skaffolder-id: 5e7cdf8a06e8563f32299fcb
@@ -1267,6 +1785,10 @@ components:
           type: string
           x-skaffolder-id-attr: 5e7cd78906e8563f32299f51
           x-skaffolder-type: String
+        Storage:
+          type: string
+          x-skaffolder-id-attr: 5e7ce9b006e8563f3229a011
+          x-skaffolder-type: String
         Type:
           type: string
           x-skaffolder-id-attr: 5e7cd78906e8563f32299f52
@@ -1275,16 +1797,12 @@ components:
           type: string
           x-skaffolder-id-attr: 5e7cd78906e8563f32299f53
           x-skaffolder-type: String
-        Volumes:
-          type: string
-          x-skaffolder-id-attr: 5e7cd78906e8563f32299f54
-          x-skaffolder-type: String
       x-skaffolder-relations:
-        environments:
-          x-skaffolder-id: 5e7cde1d06e8563f32299f88
+        volumes:
+          x-skaffolder-id: 5e7df85306e8563f3229a91d
           x-skaffolder-type: 1:m
           x-skaffolder-ent1: 5e7cd78906e8563f32299f4b
-          x-skaffolder-ent2: 5e7cd51106e8563f32299f38
+          x-skaffolder-ent2: 5e7cdadb06e8563f32299f73
       required:
         - _id
     Environment:
@@ -1302,11 +1820,26 @@ components:
           x-skaffolder-type: String
           x-skaffolder-required: true
       x-skaffolder-relations:
-        projects:
-          x-skaffolder-id: 5e7cdf0906e8563f32299f97
+        containers:
+          x-skaffolder-id: 5e7dfca606e8563f3229a97d
           x-skaffolder-type: 1:m
           x-skaffolder-ent1: 5e7cd51106e8563f32299f38
-          x-skaffolder-ent2: 5e7cd4fb06e8563f32299f33
+          x-skaffolder-ent2: 5e7cd78906e8563f32299f4b
+        services:
+          x-skaffolder-id: 5e7dfca606e8563f3229a97e
+          x-skaffolder-type: 1:m
+          x-skaffolder-ent1: 5e7cd51106e8563f32299f38
+          x-skaffolder-ent2: 5e7cda6d06e8563f32299f68
+        vms:
+          x-skaffolder-id: 5e7dfe6306e8563f3229a98e
+          x-skaffolder-type: 1:m
+          x-skaffolder-ent1: 5e7cd51106e8563f32299f38
+          x-skaffolder-ent2: 5e7dfd5606e8563f3229a983
+        volumes:
+          x-skaffolder-id: 5e7dfe6306e8563f3229a98f
+          x-skaffolder-type: 1:m
+          x-skaffolder-ent1: 5e7cd51106e8563f32299f38
+          x-skaffolder-ent2: 5e7cdadb06e8563f32299f73
       required:
         - _id
         - Name
@@ -1324,7 +1857,27 @@ components:
           x-skaffolder-id-attr: 5e7cd4fb06e8563f32299f34
           x-skaffolder-type: String
           x-skaffolder-required: true
-      x-skaffolder-relations: 
+      x-skaffolder-relations:
+        containers:
+          x-skaffolder-id: 5e7df83306e8563f3229a91b
+          x-skaffolder-type: 1:m
+          x-skaffolder-ent1: 5e7cd4fb06e8563f32299f33
+          x-skaffolder-ent2: 5e7cd78906e8563f32299f4b
+        environments:
+          x-skaffolder-id: 5e7df83306e8563f3229a91a
+          x-skaffolder-type: 1:m
+          x-skaffolder-ent1: 5e7cd4fb06e8563f32299f33
+          x-skaffolder-ent2: 5e7cd51106e8563f32299f38
+        services:
+          x-skaffolder-id: 5e7df83306e8563f3229a91c
+          x-skaffolder-type: 1:m
+          x-skaffolder-ent1: 5e7cd4fb06e8563f32299f33
+          x-skaffolder-ent2: 5e7cda6d06e8563f32299f68
+        vms:
+          x-skaffolder-id: 5e7dfef506e8563f3229a995
+          x-skaffolder-type: 1:m
+          x-skaffolder-ent1: 5e7cd4fb06e8563f32299f33
+          x-skaffolder-ent2: 5e7dfd5606e8563f3229a983
       required:
         - _id
         - Name
@@ -1354,11 +1907,11 @@ components:
           x-skaffolder-id-attr: 5e7cda6d06e8563f32299f6c
           x-skaffolder-type: String
       x-skaffolder-relations:
-        environments:
+        volumes:
           x-skaffolder-id: 5e7cde4f06e8563f32299f8c
           x-skaffolder-type: 1:m
           x-skaffolder-ent1: 5e7cda6d06e8563f32299f68
-          x-skaffolder-ent2: 5e7cd51106e8563f32299f38
+          x-skaffolder-ent2: 5e7cdadb06e8563f32299f73
       required:
         - _id
     User:
@@ -1407,6 +1960,39 @@ components:
         - _id
         - password
         - username
+    VirtualMachine:
+      x-skaffolder-id: 5e7dfd5606e8563f3229a988
+      x-skaffolder-id-db: 5e7cc4f506e8563f32299d82
+      x-skaffolder-id-entity: 5e7dfd5606e8563f3229a983
+      x-skaffolder-url: /virtualmachine
+      properties:
+        _id:
+          type: string
+          x-skaffolder-required: true
+        CPUS:
+          type: number
+          x-skaffolder-id-attr: 5e7dfd5606e8563f3229a985
+          x-skaffolder-type: Number
+        DiskSize:
+          type: number
+          x-skaffolder-id-attr: 5e7dfd5606e8563f3229a987
+          x-skaffolder-type: Number
+        Memory:
+          type: number
+          x-skaffolder-id-attr: 5e7dfd5606e8563f3229a986
+          x-skaffolder-type: Number
+        Name:
+          type: string
+          x-skaffolder-id-attr: 5e7dfd5606e8563f3229a984
+          x-skaffolder-type: String
+      x-skaffolder-relations:
+        volumes:
+          x-skaffolder-id: 5e7dff3f06e8563f3229a996
+          x-skaffolder-type: 1:m
+          x-skaffolder-ent1: 5e7dfd5606e8563f3229a983
+          x-skaffolder-ent2: 5e7cdadb06e8563f32299f73
+      required:
+        - _id
     Volume:
       x-skaffolder-id: 5e7cdadb06e8563f32299f78
       x-skaffolder-id-db: 5e7cc4f506e8563f32299d82
@@ -1432,12 +2018,7 @@ components:
           type: number
           x-skaffolder-id-attr: 5e7cdadb06e8563f32299f75
           x-skaffolder-type: Number
-      x-skaffolder-relations:
-        environments:
-          x-skaffolder-id: 5e7cde8206e8563f32299f8d
-          x-skaffolder-type: 1:m
-          x-skaffolder-ent1: 5e7cdadb06e8563f32299f73
-          x-skaffolder-ent2: 5e7cd51106e8563f32299f38
+      x-skaffolder-relations: 
       required:
         - _id
   x-skaffolder-db:
@@ -1453,7 +2034,9 @@ components:
         - 5e7cdf7506e8563f32299fb9
         - 5e7cdf7506e8563f32299fba
         - 5e7cdf7506e8563f32299fb7
-        - 5e7cdf6606e8563f32299fb3
+        - 5e7e012106e8563f3229a9a5
+        - 5e7cdf8b06e8563f32299fd2
+        - 5e7e012106e8563f3229a9a7
       x-skaffolder-nesteds: 
       x-skaffolder-links: 
       x-skaffolder-roles: []
@@ -1478,10 +2061,11 @@ components:
         - 5e7cdf6606e8563f32299faa
         - 5e7cdf6606e8563f32299fa7
         - 5e7cdf6606e8563f32299fa9
-        - 5e7cdf6606e8563f32299fac
-        - 5e7cdf6606e8563f32299fae
-        - 5e7cdf6606e8563f32299fb0
-        - 5e7cdf5806e8563f32299fa3
+        - 5e7e011706e8563f3229a9a3
+        - 5e7cdf7506e8563f32299fbe
+        - 5e7cdf7f06e8563f32299fc8
+        - 5e7e010c06e8563f3229a9a2
+        - 5e7cdf8b06e8563f32299fd2
       x-skaffolder-nesteds: 
       x-skaffolder-links: 
       x-skaffolder-roles: []
@@ -1493,7 +2077,11 @@ components:
       x-skaffolder-services:
         - 5e7cdf6606e8563f32299fb4
         - 5e7cdf6606e8563f32299fb3
-      x-skaffolder-nesteds: 
+      x-skaffolder-nesteds:
+        - 5e7cdf7506e8563f32299fbc
+        - 5e7cdf7f06e8563f32299fc6
+        - 5e7e013e06e8563f3229a9c0
+        - 5e7cdf8b06e8563f32299fd0
       x-skaffolder-links:
         - 5e7cdf6606e8563f32299fa6
       x-skaffolder-roles: []
@@ -1511,6 +2099,7 @@ components:
         - 5e7cdf7506e8563f32299fbc
         - 5e7cdf7f06e8563f32299fc6
         - 5e7cdf8b06e8563f32299fd0
+        - 5e7e013e06e8563f3229a9c0
       x-skaffolder-roles: []
     - x-skaffolder-id: 5e7cdf5806e8563f32299f98
       x-skaffolder-name: ProjectEdit
@@ -1522,7 +2111,10 @@ components:
         - 5e7cdf5806e8563f32299f99
         - 5e7cdf5806e8563f32299f9b
         - 5e7cdf5806e8563f32299f9e
-        - 5e7cdf5806e8563f32299fa0
+        - 5e7cdf6606e8563f32299fb3
+        - 5e7cdf7506e8563f32299fbe
+        - 5e7cdf7f06e8563f32299fc8
+        - 5e7e010c06e8563f3229a9a2
       x-skaffolder-nesteds: 
       x-skaffolder-links: 
       x-skaffolder-roles: []
@@ -1534,7 +2126,8 @@ components:
       x-skaffolder-services:
         - 5e7cdf5806e8563f32299fa4
         - 5e7cdf5806e8563f32299fa3
-      x-skaffolder-nesteds: 
+      x-skaffolder-nesteds:
+        - 5e7cdf6606e8563f32299fb2
       x-skaffolder-links:
         - 5e7cdf5806e8563f32299f98
       x-skaffolder-roles: []
@@ -1547,7 +2140,9 @@ components:
         - 5e7cdf7f06e8563f32299fc1
         - 5e7cdf7f06e8563f32299fc2
         - 5e7cdf7f06e8563f32299fc3
-        - 5e7cdf6606e8563f32299fb3
+        - 5e7cdf8b06e8563f32299fd2
+        - 5e7e012a06e8563f3229a9a9
+        - 5e7e012a06e8563f3229a9ab
       x-skaffolder-nesteds: 
       x-skaffolder-links: 
       x-skaffolder-roles: []
@@ -1572,6 +2167,7 @@ components:
         - 5e7cc4f506e8563f32299d94
         - 5e7cc4f506e8563f32299d8f
         - 5e7cc4f506e8563f32299d8e
+        - 5e7cdf5806e8563f32299fa3
       x-skaffolder-nesteds: 
       x-skaffolder-links: 
       x-skaffolder-roles: []
@@ -1587,6 +2183,33 @@ components:
       x-skaffolder-links:
         - 5e7cde9b06e8563f32299f8f
       x-skaffolder-roles: []
+    - x-skaffolder-id: 5e7e013d06e8563f3229a9b6
+      x-skaffolder-name: VirtualMachineEdit
+      x-skaffolder-url: /virtualmachines/{id}
+      x-skaffolder-template: Edit_Crud
+      x-skaffolder-resource: 5e7dfd5606e8563f3229a988
+      x-skaffolder-services:
+        - 5e7e013d06e8563f3229a9b7
+        - 5e7e013d06e8563f3229a9b8
+        - 5e7e013d06e8563f3229a9b9
+        - 5e7e013d06e8563f3229a9bc
+        - 5e7e013d06e8563f3229a9be
+        - 5e7cdf8b06e8563f32299fd2
+      x-skaffolder-nesteds: 
+      x-skaffolder-links: 
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 5e7e013e06e8563f3229a9c0
+      x-skaffolder-name: VirtualMachineList
+      x-skaffolder-url: /virtualmachines
+      x-skaffolder-template: List_Crud
+      x-skaffolder-resource: 5e7dfd5606e8563f3229a988
+      x-skaffolder-services:
+        - 5e7e013e06e8563f3229a9c1
+        - 5e7e010c06e8563f3229a9a2
+      x-skaffolder-nesteds: 
+      x-skaffolder-links:
+        - 5e7e013d06e8563f3229a9b6
+      x-skaffolder-roles: []
     - x-skaffolder-id: 5e7cdf8a06e8563f32299fca
       x-skaffolder-name: VolumeEdit
       x-skaffolder-url: /volumes/{id}
@@ -1596,7 +2219,10 @@ components:
         - 5e7cdf8a06e8563f32299fcb
         - 5e7cdf8a06e8563f32299fcc
         - 5e7cdf8a06e8563f32299fce
-        - 5e7cdf6606e8563f32299fb3
+        - 5e7e013306e8563f3229a9ad
+        - 5e7e013306e8563f3229a9af
+        - 5e7e013306e8563f3229a9b1
+        - 5e7e013306e8563f3229a9b3
       x-skaffolder-nesteds: 
       x-skaffolder-links: 
       x-skaffolder-roles: []

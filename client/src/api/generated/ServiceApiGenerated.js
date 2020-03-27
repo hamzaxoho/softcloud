@@ -105,6 +105,22 @@ class ServiceApiGenerated {
   }
 
   /**
+  * ServiceService.findByvolumes
+  *   @description CRUD ACTION findByvolumes
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  static findByvolumes(id) {
+    return axios.get(ServiceApiGenerated.contextUrl + "/findByvolumes/" + id )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
   * ServiceService.get
   *   @description CRUD ACTION get
   *   @param ObjectId id Id resource

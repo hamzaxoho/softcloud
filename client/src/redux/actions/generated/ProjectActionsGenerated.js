@@ -92,6 +92,82 @@ let actionsFunction = {
   },
 
 
+  // Find by containers
+  findBycontainers: function(key) {
+    return function(dispatch) {
+      return ProjectApi
+        .findBycontainers(key)
+        .then(item => {
+          dispatch(actionsFunction.findBycontainersSuccess(item));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  findBycontainersSuccess: function(item) {
+    return { type: types.FINDBYCONTAINERS_PROJECT_SUCCESS, payload: item };
+  },
+
+
+  // Find by environments
+  findByenvironments: function(key) {
+    return function(dispatch) {
+      return ProjectApi
+        .findByenvironments(key)
+        .then(item => {
+          dispatch(actionsFunction.findByenvironmentsSuccess(item));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  findByenvironmentsSuccess: function(item) {
+    return { type: types.FINDBYENVIRONMENTS_PROJECT_SUCCESS, payload: item };
+  },
+
+
+  // Find by services
+  findByservices: function(key) {
+    return function(dispatch) {
+      return ProjectApi
+        .findByservices(key)
+        .then(item => {
+          dispatch(actionsFunction.findByservicesSuccess(item));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  findByservicesSuccess: function(item) {
+    return { type: types.FINDBYSERVICES_PROJECT_SUCCESS, payload: item };
+  },
+
+
+  // Find by vms
+  findByvms: function(key) {
+    return function(dispatch) {
+      return ProjectApi
+        .findByvms(key)
+        .then(item => {
+          dispatch(actionsFunction.findByvmsSuccess(item));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  findByvmsSuccess: function(item) {
+    return { type: types.FINDBYVMS_PROJECT_SUCCESS, payload: item };
+  },
+
+
   // Get project
   loadProject: function(id) {
     return function(dispatch) {

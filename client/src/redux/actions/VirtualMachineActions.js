@@ -29,37 +29,28 @@
 * You will get 10% discount for each one of your friends
 * 
 */
-// Dependencies
-import * as types from "../actionTypes";
+import actionsFunction from "./generated/VirtualMachineActionsGenerated";
 
-// Init
-const initialState = {
-  service: {}
-};
+// You can customize the base actions overriding the object "actionsFunction" as shown in the example below:
+/** 
+ // EXAMPLE:
+ 
+ import VirtualMachineApi from "../../api/VirtualMachineApi";
+ 
+ actionsFunction.loadVirtualMachineList = function() {
+   return function(dispatch) {
+     console.log("This is my custom function");
+     return VirtualMachineApi
+     .getVirtualMachineList()
+     .then(list => {
+       dispatch(actionsFunction.loadVirtualMachineSuccess(list));
+      })
+      .catch(error => {
+        throw error;
+      });
+    };
+  };
+  
+*/
 
-// Reducer
-export default function ServiceEditReducer(state = initialState, action) {
-  switch (action.type) { 
-    
-    // Insert here your custom reducers
-
-
-    // START REDUCERS
-    case types.CREATE_SERVICE_SUCCESS:
-      return { ...state, service: action.payload };
-    case types.UPDATE_SERVICE_SUCCESS:
-      return { ...state, service: action.payload };
-    case types.GET_SERVICE_SUCCESS:
-      return { ...state, service: action.payload };
-    case types.LIST_VOLUME_SUCCESS:
-      return { ...state, listVolume: action.payload };
-    case types.FINDBYSERVICES_PROJECT_SUCCESS:
-      return { ...state, listProject: action.payload };
-    case types.FINDBYSERVICES_ENVIRONMENT_SUCCESS:
-      return { ...state, listEnvironment: action.payload };
-     // END REDUCERS
-    
-    default:
-      return state;
-  }
-}
+export default actionsFunction;

@@ -49,6 +49,9 @@ import Button from "@material-ui/core/Button";
 // START IMPORT ACTIONS
 import ProjectActions from "../redux/actions/ProjectActions";
 import EnvironmentActions from "../redux/actions/EnvironmentActions";
+import ContainerActions from "../redux/actions/ContainerActions";
+import ServiceActions from "../redux/actions/ServiceActions";
+import VirtualMachineActions from "../redux/actions/VirtualMachineActions";
 
 // END IMPORT ACTIONS
 
@@ -69,9 +72,17 @@ import EnvironmentActions from "../redux/actions/EnvironmentActions";
 *	@description CRUD ACTION findByprojects
 *	@param Objectid key - Id of model to search for
 *
-* actionsEnvironment.findByprojects
-*	@description CRUD ACTION findByprojects
-*	@param Objectid key - Id of model to search for
+* actionsEnvironment.list
+*	@description CRUD ACTION list
+*
+* actionsContainer.list
+*	@description CRUD ACTION list
+*
+* actionsService.list
+*	@description CRUD ACTION list
+*
+* actionsVirtualMachine.list
+*	@description CRUD ACTION list
 *
 
 **/

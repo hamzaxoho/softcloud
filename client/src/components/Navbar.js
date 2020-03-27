@@ -163,6 +163,14 @@ class Navbar extends React.Component {
               <ListItemText className="menu-text" primary="User" />
             </ListItem>
           </Link>{" "}            
+           <Link to="/virtualmachines">
+            <ListItem button key="VirtualMachine">
+              <ListItemIcon>
+                <ArrowForwardIos />
+              </ListItemIcon>
+              <ListItemText className="menu-text" primary="VirtualMachine" />
+            </ListItem>
+          </Link>{" "}            
            <Link to="/volumes">
             <ListItem button key="Volume">
               <ListItemIcon>

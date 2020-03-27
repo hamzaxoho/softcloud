@@ -53,8 +53,14 @@ export default function ProjectEditReducer(state = initialState, action) {
       return { ...state, project: action.payload };
     case types.FINDBYPROJECTS_USER_SUCCESS:
       return { ...state, listUser: action.payload };
-    case types.FINDBYPROJECTS_ENVIRONMENT_SUCCESS:
+    case types.LIST_ENVIRONMENT_SUCCESS:
       return { ...state, listEnvironment: action.payload };
+    case types.LIST_CONTAINER_SUCCESS:
+      return { ...state, listContainer: action.payload };
+    case types.LIST_SERVICE_SUCCESS:
+      return { ...state, listService: action.payload };
+    case types.LIST_VIRTUALMACHINE_SUCCESS:
+      return { ...state, listVirtualMachine: action.payload };
      // END REDUCERS
     
     default:

@@ -43,6 +43,7 @@ import EnvironmentModel from "../models/Softcloud_db/EnvironmentModel";
 import ProjectModel from "../models/Softcloud_db/ProjectModel";
 import ServiceModel from "../models/Softcloud_db/ServiceModel";
 import UserModel from "../models/Softcloud_db/UserModel";
+import VirtualMachineModel from "../models/Softcloud_db/VirtualMachineModel";
 import VolumeModel from "../models/Softcloud_db/VolumeModel";
 
 // End Import Models
@@ -64,6 +65,7 @@ class Database {
 		ProjectModel.init();
 		ServiceModel.init();
 		UserModel.init();
+		VirtualMachineModel.init();
 		VolumeModel.init();
  // End Init Models
   }

@@ -89,6 +89,22 @@ class EnvironmentApiGenerated {
   }
 
   /**
+  * EnvironmentService.findBycontainers
+  *   @description CRUD ACTION findBycontainers
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  static findBycontainers(id) {
+    return axios.get(EnvironmentApiGenerated.contextUrl + "/findBycontainers/" + id )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
   * EnvironmentService.findByprojects
   *   @description CRUD ACTION findByprojects
   *   @param Objectid key Id of model to search for
@@ -96,6 +112,54 @@ class EnvironmentApiGenerated {
   */
   static findByprojects(id) {
     return axios.get(EnvironmentApiGenerated.contextUrl + "/findByprojects/" + id )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * EnvironmentService.findByservices
+  *   @description CRUD ACTION findByservices
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  static findByservices(id) {
+    return axios.get(EnvironmentApiGenerated.contextUrl + "/findByservices/" + id )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * EnvironmentService.findByvms
+  *   @description CRUD ACTION findByvms
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  static findByvms(id) {
+    return axios.get(EnvironmentApiGenerated.contextUrl + "/findByvms/" + id )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * EnvironmentService.findByvolumes
+  *   @description CRUD ACTION findByvolumes
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  static findByvolumes(id) {
+    return axios.get(EnvironmentApiGenerated.contextUrl + "/findByvolumes/" + id )
       .then(response => {
         return response.data;
       })

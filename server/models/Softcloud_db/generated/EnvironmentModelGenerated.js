@@ -69,9 +69,21 @@ const generatedModel = {
         required: true
       },
       // RELATIONS
-      projects: {
+      containers: {
         type: Schema.ObjectId,
-        ref: "Project"
+        ref: "Container"
+      },
+      services: {
+        type: Schema.ObjectId,
+        ref: "Service"
+      },
+      vms: {
+        type: Schema.ObjectId,
+        ref: "VirtualMachine"
+      },
+      volumes: {
+        type: Schema.ObjectId,
+        ref: "Volume"
       },
       
       
@@ -79,15 +91,7 @@ const generatedModel = {
       /*
       environments: {
         type: Schema.ObjectId,
-        ref: "Container"
-      },
-      environments: {
-        type: Schema.ObjectId,
-        ref: "Volume"
-      },
-      environments: {
-        type: Schema.ObjectId,
-        ref: "Service"
+        ref: "Project"
       },
       */
     });
@@ -138,6 +142,16 @@ const generatedModel = {
   },
   
   /**
+  * EnvironmentModel.findBycontainers
+  *   @description CRUD ACTION findBycontainers
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  async findBycontainers(key) {
+    return await generatedModel.model.find({ 'containers' : key});
+  },
+  
+  /**
   * EnvironmentModel.findByprojects
   *   @description CRUD ACTION findByprojects
   *   @param Objectid key Id of model to search for
@@ -145,6 +159,36 @@ const generatedModel = {
   */
   async findByprojects(key) {
     return await generatedModel.model.find({ 'projects' : key});
+  },
+  
+  /**
+  * EnvironmentModel.findByservices
+  *   @description CRUD ACTION findByservices
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  async findByservices(key) {
+    return await generatedModel.model.find({ 'services' : key});
+  },
+  
+  /**
+  * EnvironmentModel.findByvms
+  *   @description CRUD ACTION findByvms
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  async findByvms(key) {
+    return await generatedModel.model.find({ 'vms' : key});
+  },
+  
+  /**
+  * EnvironmentModel.findByvolumes
+  *   @description CRUD ACTION findByvolumes
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  async findByvolumes(key) {
+    return await generatedModel.model.find({ 'volumes' : key});
   },
   
   /**

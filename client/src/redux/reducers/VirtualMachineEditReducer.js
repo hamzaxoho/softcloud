@@ -34,31 +34,27 @@ import * as types from "../actionTypes";
 
 // Init
 const initialState = {
-  environment: {}
+  virtualmachine: {}
 };
 
 // Reducer
-export default function EnvironmentEditReducer(state = initialState, action) {
+export default function VirtualMachineEditReducer(state = initialState, action) {
   switch (action.type) { 
     
     // Insert here your custom reducers
 
 
     // START REDUCERS
-    case types.CREATE_ENVIRONMENT_SUCCESS:
-      return { ...state, environment: action.payload };
-    case types.UPDATE_ENVIRONMENT_SUCCESS:
-      return { ...state, environment: action.payload };
-    case types.GET_ENVIRONMENT_SUCCESS:
-      return { ...state, environment: action.payload };
-    case types.FINDBYENVIRONMENTS_PROJECT_SUCCESS:
+    case types.CREATE_VIRTUALMACHINE_SUCCESS:
+      return { ...state, virtualmachine: action.payload };
+    case types.UPDATE_VIRTUALMACHINE_SUCCESS:
+      return { ...state, virtualmachine: action.payload };
+    case types.GET_VIRTUALMACHINE_SUCCESS:
+      return { ...state, virtualmachine: action.payload };
+    case types.FINDBYVMS_ENVIRONMENT_SUCCESS:
+      return { ...state, listEnvironment: action.payload };
+    case types.FINDBYVMS_PROJECT_SUCCESS:
       return { ...state, listProject: action.payload };
-    case types.LIST_CONTAINER_SUCCESS:
-      return { ...state, listContainer: action.payload };
-    case types.LIST_SERVICE_SUCCESS:
-      return { ...state, listService: action.payload };
-    case types.LIST_VIRTUALMACHINE_SUCCESS:
-      return { ...state, listVirtualMachine: action.payload };
     case types.LIST_VOLUME_SUCCESS:
       return { ...state, listVolume: action.payload };
      // END REDUCERS

@@ -29,37 +29,31 @@
 * You will get 10% discount for each one of your friends
 * 
 */
+import VirtualMachineApiGenerated from "./generated/VirtualMachineApiGenerated";
+
 // Dependencies
-import * as types from "../actionTypes";
+//import axios from "axios";
+//import { properties } from "../config/properties";
 
-// Init
-const initialState = {
-  service: {}
-};
+class VirtualMachineApi extends VirtualMachineApiGenerated {
+  // You can customize the base actions overriding the object "actionsFunction" as shown in the example below:
+  /** 
+  // EXAMPLE:
+ 
+  // Get VirtualMachine List
+  static getVirtualMachineList() {
+    console.log("This is my custom API");
 
-// Reducer
-export default function ServiceEditReducer(state = initialState, action) {
-  switch (action.type) { 
-    
-    // Insert here your custom reducers
-
-
-    // START REDUCERS
-    case types.CREATE_SERVICE_SUCCESS:
-      return { ...state, service: action.payload };
-    case types.UPDATE_SERVICE_SUCCESS:
-      return { ...state, service: action.payload };
-    case types.GET_SERVICE_SUCCESS:
-      return { ...state, service: action.payload };
-    case types.LIST_VOLUME_SUCCESS:
-      return { ...state, listVolume: action.payload };
-    case types.FINDBYSERVICES_PROJECT_SUCCESS:
-      return { ...state, listProject: action.payload };
-    case types.FINDBYSERVICES_ENVIRONMENT_SUCCESS:
-      return { ...state, listEnvironment: action.payload };
-     // END REDUCERS
-    
-    default:
-      return state;
+    return fetch("http://localhost:3000/api/virtualmachines")
+      .then(response => {
+        return response.json();
+      })
+      .catch(error => {
+        throw error;
+      });
   }
+  */
+
 }
+
+export default VirtualMachineApi;

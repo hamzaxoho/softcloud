@@ -77,14 +77,26 @@ const generatedModel = {
         type: "Number"
       },
       // RELATIONS
-      environments: {
-        type: Schema.ObjectId,
-        ref: "Environment"
-      },
       
       
       // EXTERNAL RELATIONS
       /*
+      volumes: {
+        type: Schema.ObjectId,
+        ref: "Service"
+      },
+      volumes: {
+        type: Schema.ObjectId,
+        ref: "Container"
+      },
+      volumes: {
+        type: Schema.ObjectId,
+        ref: "Environment"
+      },
+      volumes: {
+        type: Schema.ObjectId,
+        ref: "VirtualMachine"
+      },
       */
     });
 

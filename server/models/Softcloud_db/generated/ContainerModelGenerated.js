@@ -82,24 +82,32 @@ const generatedModel = {
       ServiceEndpoints: {
         type: "String"
       },
+      Storage: {
+        type: "String"
+      },
       Type: {
         type: "String"
       },
       UserData: {
         type: "String"
       },
-      Volumes: {
-        type: "String"
-      },
       // RELATIONS
-      environments: {
+      volumes: {
         type: Schema.ObjectId,
-        ref: "Environment"
+        ref: "Volume"
       },
       
       
       // EXTERNAL RELATIONS
       /*
+      containers: {
+        type: Schema.ObjectId,
+        ref: "Environment"
+      },
+      containers: {
+        type: Schema.ObjectId,
+        ref: "Project"
+      },
       */
     });
 
@@ -156,6 +164,16 @@ const generatedModel = {
   */
   async findByenvironments(key) {
     return await generatedModel.model.find({ 'environments' : key});
+  },
+  
+  /**
+  * ContainerModel.findByvolumes
+  *   @description CRUD ACTION findByvolumes
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  async findByvolumes(key) {
+    return await generatedModel.model.find({ 'volumes' : key});
   },
   
   /**

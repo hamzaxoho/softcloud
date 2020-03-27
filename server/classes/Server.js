@@ -63,6 +63,7 @@ import EnvironmentController from "../controllers/Softcloud_db/EnvironmentContro
 import ProjectController from "../controllers/Softcloud_db/ProjectController";
 import ServiceController from "../controllers/Softcloud_db/ServiceController";
 import UserController from "../controllers/Softcloud_db/UserController";
+import VirtualMachineController from "../controllers/Softcloud_db/VirtualMachineController";
 import VolumeController from "../controllers/Softcloud_db/VolumeController";
 
 // End Import Controllers
@@ -149,6 +150,7 @@ class Server {
 		ProjectController.init(router);
 		ServiceController.init(router);
 		UserController.init(router);
+		VirtualMachineController.init(router);
 		VolumeController.init(router);
 		 // End Init Controllers
 

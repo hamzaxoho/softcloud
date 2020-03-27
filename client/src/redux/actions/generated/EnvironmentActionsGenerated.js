@@ -92,6 +92,25 @@ let actionsFunction = {
   },
 
 
+  // Find by containers
+  findBycontainers: function(key) {
+    return function(dispatch) {
+      return EnvironmentApi
+        .findBycontainers(key)
+        .then(item => {
+          dispatch(actionsFunction.findBycontainersSuccess(item));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  findBycontainersSuccess: function(item) {
+    return { type: types.FINDBYCONTAINERS_ENVIRONMENT_SUCCESS, payload: item };
+  },
+
+
   // Find by projects
   findByprojects: function(key) {
     return function(dispatch) {
@@ -108,6 +127,63 @@ let actionsFunction = {
 
   findByprojectsSuccess: function(item) {
     return { type: types.FINDBYPROJECTS_ENVIRONMENT_SUCCESS, payload: item };
+  },
+
+
+  // Find by services
+  findByservices: function(key) {
+    return function(dispatch) {
+      return EnvironmentApi
+        .findByservices(key)
+        .then(item => {
+          dispatch(actionsFunction.findByservicesSuccess(item));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  findByservicesSuccess: function(item) {
+    return { type: types.FINDBYSERVICES_ENVIRONMENT_SUCCESS, payload: item };
+  },
+
+
+  // Find by vms
+  findByvms: function(key) {
+    return function(dispatch) {
+      return EnvironmentApi
+        .findByvms(key)
+        .then(item => {
+          dispatch(actionsFunction.findByvmsSuccess(item));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  findByvmsSuccess: function(item) {
+    return { type: types.FINDBYVMS_ENVIRONMENT_SUCCESS, payload: item };
+  },
+
+
+  // Find by volumes
+  findByvolumes: function(key) {
+    return function(dispatch) {
+      return EnvironmentApi
+        .findByvolumes(key)
+        .then(item => {
+          dispatch(actionsFunction.findByvolumesSuccess(item));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  findByvolumesSuccess: function(item) {
+    return { type: types.FINDBYVOLUMES_ENVIRONMENT_SUCCESS, payload: item };
   },
 
 

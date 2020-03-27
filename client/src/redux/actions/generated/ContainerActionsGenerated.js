@@ -111,6 +111,25 @@ let actionsFunction = {
   },
 
 
+  // Find by volumes
+  findByvolumes: function(key) {
+    return function(dispatch) {
+      return ContainerApi
+        .findByvolumes(key)
+        .then(item => {
+          dispatch(actionsFunction.findByvolumesSuccess(item));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  findByvolumesSuccess: function(item) {
+    return { type: types.FINDBYVOLUMES_CONTAINER_SUCCESS, payload: item };
+  },
+
+
   // Get container
   loadContainer: function(id) {
     return function(dispatch) {

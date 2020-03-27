@@ -89,6 +89,70 @@ class ProjectApiGenerated {
   }
 
   /**
+  * ProjectService.findBycontainers
+  *   @description CRUD ACTION findBycontainers
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  static findBycontainers(id) {
+    return axios.get(ProjectApiGenerated.contextUrl + "/findBycontainers/" + id )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * ProjectService.findByenvironments
+  *   @description CRUD ACTION findByenvironments
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  static findByenvironments(id) {
+    return axios.get(ProjectApiGenerated.contextUrl + "/findByenvironments/" + id )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * ProjectService.findByservices
+  *   @description CRUD ACTION findByservices
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  static findByservices(id) {
+    return axios.get(ProjectApiGenerated.contextUrl + "/findByservices/" + id )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * ProjectService.findByvms
+  *   @description CRUD ACTION findByvms
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  static findByvms(id) {
+    return axios.get(ProjectApiGenerated.contextUrl + "/findByvms/" + id )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
   * ProjectService.get
   *   @description CRUD ACTION get
   *   @param ObjectId id Id resource

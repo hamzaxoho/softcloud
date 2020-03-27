@@ -61,6 +61,7 @@ const generatedControllers = {
     router.post(baseUrl + "", authorize([]), ServiceController.create);
     router.delete(baseUrl + "/:id", authorize([]), ServiceController.delete);
     router.get(baseUrl + "/findByenvironments/:key", authorize([]), ServiceController.findByenvironments);
+    router.get(baseUrl + "/findByvolumes/:key", authorize([]), ServiceController.findByvolumes);
     router.get(baseUrl + "/:id", authorize([]), ServiceController.get);
     router.get(baseUrl + "", authorize([]), ServiceController.list);
     router.post(baseUrl + "/:id", authorize([]), ServiceController.update);
@@ -110,6 +111,22 @@ const generatedControllers = {
   findByenvironments: async (req, res) => {
     try {
       const result = await ServiceModel.findByenvironments(req.params.key);
+      res.json(result);
+    } catch (err) {
+      const safeErr = ErrorManager.getSafeError(err);
+      res.status(safeErr.status).json(safeErr);
+    }
+  },
+  
+  /**
+  * ServiceModel.findByvolumes
+  *   @description CRUD ACTION findByvolumes
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  findByvolumes: async (req, res) => {
+    try {
+      const result = await ServiceModel.findByvolumes(req.params.key);
       res.json(result);
     } catch (err) {
       const safeErr = ErrorManager.getSafeError(err);

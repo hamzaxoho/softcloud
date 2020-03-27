@@ -51,40 +51,33 @@ import FormControl from "@material-ui/core/FormControl";
 
 
 // START IMPORT ACTIONS
+import VirtualMachineActions from "../redux/actions/VirtualMachineActions";
 import EnvironmentActions from "../redux/actions/EnvironmentActions";
 import ProjectActions from "../redux/actions/ProjectActions";
-import ContainerActions from "../redux/actions/ContainerActions";
-import ServiceActions from "../redux/actions/ServiceActions";
-import VirtualMachineActions from "../redux/actions/VirtualMachineActions";
 import VolumeActions from "../redux/actions/VolumeActions";
 
 // END IMPORT ACTIONS
 
 /** APIs
 
-* actionsEnvironment.create
+* actionsVirtualMachine.create
 *	@description CRUD ACTION create
 *
-* actionsEnvironment.update
+* actionsVirtualMachine.update
 *	@description CRUD ACTION update
 *	@param ObjectId id - Id
 *
-* actionsEnvironment.get
+* actionsVirtualMachine.get
 *	@description CRUD ACTION get
 *	@param ObjectId id - Id resource
 *
-* actionsProject.findByenvironments
-*	@description CRUD ACTION findByenvironments
+* actionsEnvironment.findByvms
+*	@description CRUD ACTION findByvms
 *	@param Objectid key - Id of model to search for
 *
-* actionsContainer.list
-*	@description CRUD ACTION list
-*
-* actionsService.list
-*	@description CRUD ACTION list
-*
-* actionsVirtualMachine.list
-*	@description CRUD ACTION list
+* actionsProject.findByvms
+*	@description CRUD ACTION findByvms
+*	@param Objectid key - Id of model to search for
 *
 * actionsVolume.list
 *	@description CRUD ACTION list
@@ -92,44 +85,43 @@ import VolumeActions from "../redux/actions/VolumeActions";
 
 **/
 
-class EnvironmentEdit extends Component {
-  // Init environment
+class VirtualMachineEdit extends Component {
+  // Init virtualmachine
   constructor(props) {
     super(props);
     this.state = {
-      environment: {}
+      virtualmachine: {}
     };
   }
 
   // Load data on start
   componentDidMount() {
     if (this.props.match.params.id !== "new") {
-      this.props.actionsEnvironment.loadEnvironment(this.props.match.params.id);
-      this.props.actionsContainer.findByenvironments(this.props.match.params.id);
-      this.props.actionsVolume.findByenvironments(this.props.match.params.id);
-      this.props.actionsService.findByenvironments(this.props.match.params.id);
+      this.props.actionsVirtualMachine.loadVirtualMachine(this.props.match.params.id);
+      this.props.actionsEnvironment.findByvms(this.props.match.params.id);
+      this.props.actionsProject.findByvms(this.props.match.params.id);
     }
     
-    this.props.actionsProject.loadProjectList();
+    this.props.actionsVolume.loadVolumeList();
   }
 
-  // Insert props environment in state
+  // Insert props virtualmachine in state
   componentWillReceiveProps(props) {
     this.setState(...this.state, {
-      environment: props.environment
+      virtualmachine: props.virtualmachine
     });
   }
 
   // Save data
   save(event) {
     event.preventDefault();
-    if (this.state.environment._id) {
-      this.props.actionsEnvironment.saveEnvironment(this.state.environment).then(data => {
-        this.props.history.push("/environments/");
+    if (this.state.virtualmachine._id) {
+      this.props.actionsVirtualMachine.saveVirtualMachine(this.state.virtualmachine).then(data => {
+        this.props.history.push("/virtualmachines/");
       });
     } else {
-      this.props.actionsEnvironment.createEnvironment(this.state.environment).then(data => {
-        this.props.history.push("/environments/");
+      this.props.actionsVirtualMachine.createVirtualMachine(this.state.virtualmachine).then(data => {
+        this.props.history.push("/virtualmachines/");
       });
     }
   }
@@ -138,46 +130,75 @@ class EnvironmentEdit extends Component {
   render() {
     return (
       <div>
-        <h1>Environment Edit</h1>
+        <h1>VirtualMachine Edit</h1>
         <form className="myForm" onSubmit={this.save.bind(this)}>
 
           
           <TextField
-            id="Name"
-            label="Name"
-            value={this.state.environment.Name || ""}
-            onChange={Utils.handleChange.bind(this, "environment")}
+            id="CPUS"
+            label="CPUS"
+            value={this.state.virtualmachine.CPUS || ""}
+            onChange={Utils.handleChange.bind(this, "virtualmachine")}
+            type="number"
             margin="normal"
             fullWidth
-            required
-            {...(!this.state.environment.Name && this.state.environment.Name === ""
-              ? { error: true }
-              : {})}
+          />
+          
+          
+          <TextField
+            id="DiskSize"
+            label="DiskSize"
+            value={this.state.virtualmachine.DiskSize || ""}
+            onChange={Utils.handleChange.bind(this, "virtualmachine")}
+            type="number"
+            margin="normal"
+            fullWidth
+          />
+          
+          
+          <TextField
+            id="Memory"
+            label="Memory"
+            value={this.state.virtualmachine.Memory || ""}
+            onChange={Utils.handleChange.bind(this, "virtualmachine")}
+            type="number"
+            margin="normal"
+            fullWidth
+          />
+          
+          
+          <TextField
+            id="Name"
+            label="Name"
+            value={this.state.virtualmachine.Name || ""}
+            onChange={Utils.handleChange.bind(this, "virtualmachine")}
+            margin="normal"
+            fullWidth
           />
           
           {/* RELATIONS */}
 
           <h2 className="mb-20">Relations</h2>
           
-          {/* Relation 1:m projects with Project */}
+          {/* Relation 1:m volumes with Volume */}
           
           <FormControl fullWidth className="mb-20">
-            <InputLabel shrink htmlFor="projects">
-              Projects
+            <InputLabel shrink htmlFor="volumes">
+              Volumes
             </InputLabel>
             <Select
-              value={this.state.environment.projects || ""}
-              onChange={Utils.handleChangeSelect.bind(this, "environment")}
+              value={this.state.virtualmachine.volumes || ""}
+              onChange={Utils.handleChangeSelect.bind(this, "virtualmachine")}
               inputProps={{
-                id: "projects",
-                name: "projects"
+                id: "volumes",
+                name: "volumes"
               }}
               fullWidth
             >
               <MenuItem value="">
                 <em>None</em>
               </MenuItem>
-              {this.props.listProject && this.props.listProject.map(row => (
+              {this.props.listVolume && this.props.listVolume.map(row => (
                 <MenuItem value={row._id} key={row._id}>
                   {row._id}
                 </MenuItem>
@@ -188,48 +209,32 @@ class EnvironmentEdit extends Component {
           
           {/* EXTERNAL RELATIONS */}
           
-          {/* External relation with Container */}
+          {/* External relation with Environment */}
           
-          <h3>Container</h3>
-          {(!this.props.listContainer || this.props.listContainer.length === 0) && 
-            <div>No Container associated</div>
+          <h3>Environment</h3>
+          {(!this.props.listEnvironment || this.props.listEnvironment.length === 0) && 
+            <div>No Environment associated</div>
           }
-          {this.props.listContainer &&
-            this.props.listContainer.map((item, i) => {
+          {this.props.listEnvironment &&
+            this.props.listEnvironment.map((item, i) => {
               return (
-                <Link to={"/containers/" + item._id} key={item._id}>
+                <Link to={"/environments/" + item._id} key={item._id}>
                   {item._id}
                 </Link>
               );
             })}
 
           
-          {/* External relation with Volume */}
+          {/* External relation with Project */}
           
-          <h3>Volume</h3>
-          {(!this.props.listVolume || this.props.listVolume.length === 0) && 
-            <div>No Volume associated</div>
+          <h3>Project</h3>
+          {(!this.props.listProject || this.props.listProject.length === 0) && 
+            <div>No Project associated</div>
           }
-          {this.props.listVolume &&
-            this.props.listVolume.map((item, i) => {
+          {this.props.listProject &&
+            this.props.listProject.map((item, i) => {
               return (
-                <Link to={"/volumes/" + item._id} key={item._id}>
-                  {item._id}
-                </Link>
-              );
-            })}
-
-          
-          {/* External relation with Service */}
-          
-          <h3>Service</h3>
-          {(!this.props.listService || this.props.listService.length === 0) && 
-            <div>No Service associated</div>
-          }
-          {this.props.listService &&
-            this.props.listService.map((item, i) => {
-              return (
-                <Link to={"/services/" + item._id} key={item._id}>
+                <Link to={"/projects/" + item._id} key={item._id}>
                   {item._id}
                 </Link>
               );
@@ -238,7 +243,7 @@ class EnvironmentEdit extends Component {
           
           {/* Footer */}
           <div className="footer-card">
-            <Link to="/environments/">Back to list</Link>
+            <Link to="/virtualmachines/">Back to list</Link>
 
             <Button type="submit" variant="contained" color="primary">
               Save
@@ -253,35 +258,32 @@ class EnvironmentEdit extends Component {
 // Store actions
 const mapDispatchToProps = function(dispatch) {
   return { 
+    actionsVirtualMachine: bindActionCreators(VirtualMachineActions, dispatch),
     actionsEnvironment: bindActionCreators(EnvironmentActions, dispatch),
-    actionsContainer: bindActionCreators(ContainerActions, dispatch),
-    actionsService: bindActionCreators(ServiceActions, dispatch),
-    actionsVolume: bindActionCreators(VolumeActions, dispatch),
     actionsProject: bindActionCreators(ProjectActions, dispatch),
+    actionsVolume: bindActionCreators(VolumeActions, dispatch),
   };
 };
 
 // Validate types
-EnvironmentEdit.propTypes = { 
+VirtualMachineEdit.propTypes = { 
+  actionsVirtualMachine: PropTypes.object.isRequired,
   actionsEnvironment: PropTypes.object.isRequired,
-  actionsContainer: PropTypes.object.isRequired,
-  actionsService: PropTypes.object.isRequired,
-  actionsVolume: PropTypes.object.isRequired,
   actionsProject: PropTypes.object.isRequired,
+  actionsVolume: PropTypes.object.isRequired,
 };
 
 // Get props from state
 function mapStateToProps(state, ownProps) {
   return {
-    environment: state.EnvironmentEditReducer.environment,
-    listProject: state.EnvironmentEditReducer.listProject,
-    listContainer: state.EnvironmentEditReducer.listContainer,
-    listVolume: state.EnvironmentEditReducer.listVolume,
-    listService: state.EnvironmentEditReducer.listService
+    virtualmachine: state.VirtualMachineEditReducer.virtualmachine,
+    listVolume: state.VirtualMachineEditReducer.listVolume,
+    listEnvironment: state.VirtualMachineEditReducer.listEnvironment,
+    listProject: state.VirtualMachineEditReducer.listProject
   };
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(EnvironmentEdit);
+)(VirtualMachineEdit);

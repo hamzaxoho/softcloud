@@ -29,37 +29,41 @@
 * You will get 10% discount for each one of your friends
 * 
 */
-// Dependencies
-import * as types from "../actionTypes";
+import VirtualMachineModelGenerated from "./generated/VirtualMachineModelGenerated";
 
-// Init
-const initialState = {
-  container: {}
+const customModel = {
+  
+  /**
+   * Customize here your schema with custom attributes
+   * 
+   * EXAMPLE:
+    
+    init() {
+      let schema = VirtualMachineModelGenerated.init();
+  
+      schema.add({
+        extraCustomField: Object
+      });
+    },
+     
+   */
+
+
+  /**
+   * Override here your custom queries
+   * EXAMPLE:
+   *
+   
+    async get(id) {
+      console.log("This is my custom query");
+      return await VirtualMachineModelGenerated.getModel().findOne({ _id: id });
+    }
+
+   */
+
 };
 
-// Reducer
-export default function ContainerEditReducer(state = initialState, action) {
-  switch (action.type) { 
-    
-    // Insert here your custom reducers
-
-
-    // START REDUCERS
-    case types.CREATE_CONTAINER_SUCCESS:
-      return { ...state, container: action.payload };
-    case types.UPDATE_CONTAINER_SUCCESS:
-      return { ...state, container: action.payload };
-    case types.GET_CONTAINER_SUCCESS:
-      return { ...state, container: action.payload };
-    case types.FINDBYCONTAINERS_PROJECT_SUCCESS:
-      return { ...state, listProject: action.payload };
-    case types.LIST_VOLUME_SUCCESS:
-      return { ...state, listVolume: action.payload };
-    case types.FINDBYCONTAINERS_ENVIRONMENT_SUCCESS:
-      return { ...state, listEnvironment: action.payload };
-     // END REDUCERS
-    
-    default:
-      return state;
-  }
-}
+export default {
+  ...VirtualMachineModelGenerated,
+  ...customModel
+};

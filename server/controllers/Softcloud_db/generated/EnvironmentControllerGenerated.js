@@ -60,7 +60,11 @@ const generatedControllers = {
     const baseUrl = `${Properties.api}/environment`;
     router.post(baseUrl + "", authorize([]), EnvironmentController.create);
     router.delete(baseUrl + "/:id", authorize([]), EnvironmentController.delete);
+    router.get(baseUrl + "/findBycontainers/:key", authorize([]), EnvironmentController.findBycontainers);
     router.get(baseUrl + "/findByprojects/:key", authorize([]), EnvironmentController.findByprojects);
+    router.get(baseUrl + "/findByservices/:key", authorize([]), EnvironmentController.findByservices);
+    router.get(baseUrl + "/findByvms/:key", authorize([]), EnvironmentController.findByvms);
+    router.get(baseUrl + "/findByvolumes/:key", authorize([]), EnvironmentController.findByvolumes);
     router.get(baseUrl + "/:id", authorize([]), EnvironmentController.get);
     router.get(baseUrl + "", authorize([]), EnvironmentController.list);
     router.post(baseUrl + "/:id", authorize([]), EnvironmentController.update);
@@ -102,6 +106,22 @@ const generatedControllers = {
   },
   
   /**
+  * EnvironmentModel.findBycontainers
+  *   @description CRUD ACTION findBycontainers
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  findBycontainers: async (req, res) => {
+    try {
+      const result = await EnvironmentModel.findBycontainers(req.params.key);
+      res.json(result);
+    } catch (err) {
+      const safeErr = ErrorManager.getSafeError(err);
+      res.status(safeErr.status).json(safeErr);
+    }
+  },
+  
+  /**
   * EnvironmentModel.findByprojects
   *   @description CRUD ACTION findByprojects
   *   @param Objectid key Id of model to search for
@@ -110,6 +130,54 @@ const generatedControllers = {
   findByprojects: async (req, res) => {
     try {
       const result = await EnvironmentModel.findByprojects(req.params.key);
+      res.json(result);
+    } catch (err) {
+      const safeErr = ErrorManager.getSafeError(err);
+      res.status(safeErr.status).json(safeErr);
+    }
+  },
+  
+  /**
+  * EnvironmentModel.findByservices
+  *   @description CRUD ACTION findByservices
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  findByservices: async (req, res) => {
+    try {
+      const result = await EnvironmentModel.findByservices(req.params.key);
+      res.json(result);
+    } catch (err) {
+      const safeErr = ErrorManager.getSafeError(err);
+      res.status(safeErr.status).json(safeErr);
+    }
+  },
+  
+  /**
+  * EnvironmentModel.findByvms
+  *   @description CRUD ACTION findByvms
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  findByvms: async (req, res) => {
+    try {
+      const result = await EnvironmentModel.findByvms(req.params.key);
+      res.json(result);
+    } catch (err) {
+      const safeErr = ErrorManager.getSafeError(err);
+      res.status(safeErr.status).json(safeErr);
+    }
+  },
+  
+  /**
+  * EnvironmentModel.findByvolumes
+  *   @description CRUD ACTION findByvolumes
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  findByvolumes: async (req, res) => {
+    try {
+      const result = await EnvironmentModel.findByvolumes(req.params.key);
       res.json(result);
     } catch (err) {
       const safeErr = ErrorManager.getSafeError(err);

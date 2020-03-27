@@ -52,7 +52,10 @@ import FormControl from "@material-ui/core/FormControl";
 
 // START IMPORT ACTIONS
 import VolumeActions from "../redux/actions/VolumeActions";
+import ServiceActions from "../redux/actions/ServiceActions";
+import ContainerActions from "../redux/actions/ContainerActions";
 import EnvironmentActions from "../redux/actions/EnvironmentActions";
+import VirtualMachineActions from "../redux/actions/VirtualMachineActions";
 
 // END IMPORT ACTIONS
 
@@ -69,8 +72,21 @@ import EnvironmentActions from "../redux/actions/EnvironmentActions";
 *	@description CRUD ACTION get
 *	@param ObjectId id - Id resource
 *
-* actionsEnvironment.list
-*	@description CRUD ACTION list
+* actionsService.findByvolumes
+*	@description CRUD ACTION findByvolumes
+*	@param Objectid key - Id of model to search for
+*
+* actionsContainer.findByvolumes
+*	@description CRUD ACTION findByvolumes
+*	@param Objectid key - Id of model to search for
+*
+* actionsEnvironment.findByvolumes
+*	@description CRUD ACTION findByvolumes
+*	@param Objectid key - Id of model to search for
+*
+* actionsVirtualMachine.findByvolumes
+*	@description CRUD ACTION findByvolumes
+*	@param Objectid key - Id of model to search for
 *
 
 **/

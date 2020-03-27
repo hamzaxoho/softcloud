@@ -69,14 +69,26 @@ const generatedModel = {
         required: true
       },
       // RELATIONS
+      containers: {
+        type: Schema.ObjectId,
+        ref: "Container"
+      },
+      environments: {
+        type: Schema.ObjectId,
+        ref: "Environment"
+      },
+      services: {
+        type: Schema.ObjectId,
+        ref: "Service"
+      },
+      vms: {
+        type: Schema.ObjectId,
+        ref: "VirtualMachine"
+      },
       
       
       // EXTERNAL RELATIONS
       /*
-      projects: {
-        type: Schema.ObjectId,
-        ref: "Environment"
-      },
       projects: {
         type: Schema.ObjectId,
         ref: "User"
@@ -127,6 +139,46 @@ const generatedModel = {
   */
   async delete(id) {
     return await generatedModel.model.findByIdAndRemove(id);
+  },
+  
+  /**
+  * ProjectModel.findBycontainers
+  *   @description CRUD ACTION findBycontainers
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  async findBycontainers(key) {
+    return await generatedModel.model.find({ 'containers' : key});
+  },
+  
+  /**
+  * ProjectModel.findByenvironments
+  *   @description CRUD ACTION findByenvironments
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  async findByenvironments(key) {
+    return await generatedModel.model.find({ 'environments' : key});
+  },
+  
+  /**
+  * ProjectModel.findByservices
+  *   @description CRUD ACTION findByservices
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  async findByservices(key) {
+    return await generatedModel.model.find({ 'services' : key});
+  },
+  
+  /**
+  * ProjectModel.findByvms
+  *   @description CRUD ACTION findByvms
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  async findByvms(key) {
+    return await generatedModel.model.find({ 'vms' : key});
   },
   
   /**
